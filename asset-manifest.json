@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jeanyoona12-lab/dashboard/static/css/main.91133229.css",
+    "main.js": "/jeanyoona12-lab/dashboard/static/js/main.78e75bc2.js",
+    "index.html": "/jeanyoona12-lab/dashboard/index.html",
+    "main.91133229.css.map": "/jeanyoona12-lab/dashboard/static/css/main.91133229.css.map",
+    "main.78e75bc2.js.map": "/jeanyoona12-lab/dashboard/static/js/main.78e75bc2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91133229.css",
+    "static/js/main.78e75bc2.js"
+  ]
+}
