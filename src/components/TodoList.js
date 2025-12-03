@@ -12,12 +12,14 @@ const TodoList = ({ todos, onDel, onToggle }) => {
 
                     <button
                         className="todo-btn"
+                        style={{
+                            backgroundImage: `url(${process.env.PUBLIC_URL}/images/icon.png)`,
+                        }}
                         onClick={(e) => {
                             e.stopPropagation();
                             onDel(list.id);
                         }}
-                    >
-                    </button>
+                    ></button>
                 </li>
             ))}
         </ul>

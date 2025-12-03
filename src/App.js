@@ -7,6 +7,7 @@ import Quote from "./components/Quote";
 import "./data/app.css";
 import Time from "./components/Time";
 
+
 const App = () => {
     const [userName, setUserName] = useState(null);
     const [isDark, setIsDark] = useState(false);
