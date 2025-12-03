@@ -39,7 +39,7 @@ const App = () => {
                     muted
                     playsInline
                 >
-                    <source src="/images/light.mp4" type="video/mp4" />
+                    <source src={process.env.PUBLIC_URL + "/images/light.mp4"} />
                 </video>
                 <video
                     className={`bg-video ${isDark ? "visible" : "hidden"}`}
@@ -48,7 +48,7 @@ const App = () => {
                     muted
                     playsInline
                 >
-                    <source src="/images/dark.mp4" type="video/mp4" />
+                    <source src={process.env.PUBLIC_URL + "/images/dark.mp4"} />
                 </video>
             </div>
 
