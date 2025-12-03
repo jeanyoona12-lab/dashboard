@@ -1,13 +1,9 @@
-
-import React from "react";
-
-const Hello = ({user,onLogout}) => {
+const Hello = ({ user, onLogout }) => {
     return (
         <div id="hello-page">
-            <h2>안녕하세요 {user}!</h2>
-            <button onClick={onLogout}>로그아웃</button>
+            <p>{user}　님 안녕하세요!</p>
+            <button className="hellobtn" onClick={onLogout}>로그아웃</button>
         </div>
-    )
-}
-
+    );
+};
 export default Hello;

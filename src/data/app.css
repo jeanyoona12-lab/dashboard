@@ -1,0 +1,433 @@
+@charset "utf-8";
+
+/* css 배경 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,
+ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+#root {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Pretendard";
+}
+
+/* 폰트 선언 */
+/* 프리텐다드 */
+@font-face {
+    font-family: "Pretendard";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2")
+        format("woff2");
+    font-weight: 300;
+    font-display: swap;
+}
+
+/* 기본 중앙 정렬 */
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 로그인 페이지 */
+#login-page {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeLogin 0.8s ease forwards 0.5s;
+}
+
+@keyframes fadeLogin {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 배경 기본 css */
+.bg-video-light,
+.bg-video-dark {
+    filter: brightness(0.7);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.bg-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transition: opacity 1s ease, filter 0.8s ease;
+    filter: blur(0px);
+    opacity: 1;
+}
+
+.bg-video.hidden {
+    opacity: 0;
+    filter: blur(10px);
+}
+
+.bg-video.visible {
+    opacity: 1;
+    filter: blur(0px);
+}
+
+/* 로그인 페이지 버튼,텍스트 입력 배경 css */
+#login-page .btn,
+#login-page .input-text {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+    color: white;
+    transition: 0.3s;
+}
+.btn:hover {
+    filter: brightness(0.8);
+}
+
+#login-page .input-wrap {
+    position: fixed;
+    top: 50%;
+    /* 인풋 가로 길이 지정 */
+    width: 300px;
+    /* gap 대신 쓸 거 */
+    margin-top: 20px;
+}
+/* 로그인 페이지 텍스트 입력 개별 css */
+#login-page .input-text {
+    width: 100%;
+    padding-right: 80px;
+    height: 50px;
+    border-radius: 30px;
+}
+.input-text::placeholder {
+    color: #d3d3d3;
+    font-size: 13px;
+    opacity: 0.5;
+}
+/* 로그인페이지 버튼 개별 css */
+#login-page .btn {
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    transform: translateY(-50%);
+    height: 30px;
+    padding: 0 12px;
+    font-size: 13px;
+    border-radius: 15px;
+}
+
+/* 명언 css */
+.quotenote {
+    color: #e4e4e4;
+    transform: translateY(-13px);
+    text-align: center;
+    font-size: 18px;
+    position: fixed;
+    top: 49%;
+    opacity: 0;
+    animation: fadeLogin 0.8s ease forwards 0.5s;
+}
+
+
+
+/* 시간 */
+.time {
+    position: fixed;
+    top: 25%;
+    font-weight: bolder;
+    transform: translateY(-60px);
+    color: #fff;
+    font-size: 140px;
+    text-align: center;
+    opacity: 0.8;
+    animation: fadeSlide 0.8s ease forwards;
+}
+
+
+@keyframes fadeSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 온도 */
+
+#weather-page {
+    position: relative;
+}
+.weather {
+    padding: 0px 15px 15px 15px;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    z-index: 999;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.weather-top img {
+    width: 50px;
+    height: 50px;
+}
+
+.temp {
+    font-size: 14px;
+}
+
+.desc {
+    font-size: 14px;
+}
+
+.location {
+    display: inline-block;
+    margin-top: 1px;
+    padding: 0;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.weather p {
+    margin: 0;
+    padding: 0;
+}
+
+/* 상단 버튼 */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10000;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(3px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: 0.3s;
+}
+.toggle-btn:hover {
+    filter: brightness(0.8);
+}
+
+/* 로그아웃 버튼 */
+.hellobtn {
+    position: fixed;
+    top: 20px;
+    right: 1720px;
+    z-index: 10000;
+    padding: 8px 14px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(3px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: 0.3s;
+}
+
+.hellobtn:hover {
+    filter: brightness(0.8);
+}
+
+/* 로그인 완료 시,todo css */
+
+#hello-page,
+#todo-form {
+    color: #e4e4e4;
+}
+
+#todo-form {
+    margin-top: 20px;
+}
+#todo-form p {
+    margin-bottom: 10px;
+}
+.todo-input::placeholder {
+    color: #d3d3d3;
+    font-size: 13px;
+    opacity: 0.5;
+}
+
+#hello-page p {
+    transform: translateY(160px);
+    margin-top: 150px;
+    margin-bottom: 200px;
+    font-size: 28px;
+}
+
+/* #todo-wrap {
+    transform: translateY(60px);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+
+.todo-input {
+    color: #e4e4e4;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+}
+.todo-input,
+#todo-list {
+    width: 500px;
+}
+#todo-list {
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    width: 100%;
+    height: 300px;
+    overflow-y: auto;
+    border-radius: 25px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.input-list {
+    color: #e4e4e4;
+    text-align: left !important;
+}
+
+/* 한 줄(li) 전체 레이아웃 */
+.todo-item {
+    display: flex;
+    justify-content: space-between; /* ← 좌 텍스트 / 우 버튼 배치 */
+    align-items: center;
+    width: 100%;
+
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    position: relative;
+}
+
+/* 텍스트 영역 */
+.todo-text {
+    flex: 1; /* ← 텍스트가 버튼 밀어내지 않게 */
+    cursor: pointer;
+}
+
+/* 오른쪽 버튼 */
+.todo-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* 줄긋기 */
+
+.todo-text {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: none;
+    color: #d3d3d3;
+    text-align: left;
+    display: inline-block;
+    flex: none;
+}
+
+.todo-text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    height: 1px;
+    width: 0%;
+    background: rgb(211, 211, 211);
+    transition: all 0.25s ease;
+}
+
+.todo-text.done {
+    opacity: 0.5;
+    transform: scale(0.97);
+}
+/* 체크된 경우 */
+.todo-text.done::after {
+    width: 100%;
+}
+
+.input-list {
+    position: relative;
+}
+
+
+/* 오류페이지 */
+.loading, .error{
+    color: #e4e4e4;}
